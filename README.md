@@ -36,4 +36,46 @@ The protection thresholds are defined by the MOSFET characteristics and the inte
 Unlike many BMS designs that rely on a low-value shunt resistor, this implementation uses the MOSFETs themselves as the current-sensing element.
 
 Over-current detection is performed by monitoring the voltage drop between BAT and V−, which corresponds to:
+Vdrop = I × RDS(on)_total
 
+
+This approach simplifies the power path and reduces additional conduction loss, but requires careful selection of MOSFETs and an understanding of how temperature and tolerance affect protection thresholds.
+
+---
+
+## Design Philosophy
+
+This BMS intentionally prioritizes:
+
+- Predictable fault behavior
+- Controlled short-circuit energy
+- Datasheet-aligned implementation
+- Simplicity in the high-current path
+
+Rather than maximizing continuous current capability, the design focuses on robustness and well-defined protection characteristics.
+
+---
+
+## Files
+
+- `schematic/`  
+  Reference schematic in PDF and image form.
+
+- `notes/design-decisions.md`  
+  Rationale behind component choices and topology.
+
+- `notes/protection-math.md`  
+  Basic calculations related to MOSFET sensing and protection thresholds.
+
+---
+
+## Disclaimer
+
+This design is provided as a reference and has not been certified for any safety standard.  
+Anyone using or adapting it is responsible for proper validation, testing, and compliance with applicable regulations.
+
+---
+
+## License
+
+Open-source hardware, see LICENSE file.
